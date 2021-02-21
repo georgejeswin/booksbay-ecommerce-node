@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6 m-auto mb-5 pb-5">
+        <div class="container mt-5 mb-5 pb-5">
+            <h2 class="text-center mt-5 pt-5">Login</h2>
+            <form action="/admin/admin-login" method="post">
+                {{#if adminLoginErr}}
+                <p class="error">{{adminLoginErr}}</p>
+                {{/if}}
+                <div class="form-group mt-5">
+                    <label>Email address</label>
+                    <input type="email" name="Email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" required
+                        style="border: none; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4); font-weight: 200;"
+                        placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="Password" class="form-control" id="exampleInputPassword1"
+                        placeholder="Password" required
+                        style="border: none; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4); font-weight: 200;">
+                </div>
+                <a href="/admin/admin-signup">Create new account?</a>
+                <button type="submit" class="btn float-right"
+                    style="background-color: rgb(99, 23, 170); color:#ffff;border-radius:30px;">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

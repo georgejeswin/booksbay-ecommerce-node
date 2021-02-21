@@ -1,0 +1,29 @@
+<section>
+    <div class="container mt-5  pt-1 mb-5 pb-5">
+        <div class="row mt-5 pt-5">
+            <div class="col-md-6 mt-5">
+
+                <img src="/product-images/{{product._id}}.jpg" width="auto" class="card-img-top mt-4"
+                    alt="Card image cap" style="max-height: 40rem; max-width:20rem" alt="{{product.Name}}" id="imgView">
+            </div>
+            <div class="col-md-6 mt-5">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size:30px; font-weight: 400;">{{product.Name}}</h5>
+                    <p class="card-text mt-3" style="font-size:25px; font-weight: 200;">Rs.{{product.Price}}</p>
+                    <p class="card-text mt-3" style="font-size:20px; font-weight: 200;">⭐️{{product.Rating}}</p>
+
+                    {{!--<p class="card-text mt-3" style="font-size:25px; font-weight: 200;">Rating : {{product.Rating}}</p>--}}
+
+                    <p class="card-text" style="font-size:20px; font-weight: 200;">{{product.Description}}</p>
+                    
+                    <div class="row">
+                        <button onclick="addToCart('{{product._id}}')" class="btn mx-1 mt-3"
+                            style="background-color: rgb(99, 23, 170); color:#ffff; font-weight:100; ">Add to
+                            Cart</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

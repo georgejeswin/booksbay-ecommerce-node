@@ -1,0 +1,47 @@
+<section class="mt-5 pt-5 mb-5 pb-5">
+
+    <div class="row mb-5 pb-5">
+        <div class="col-md-6 m-auto">
+            <div class="container mt-5 ">
+                <form action="/login" method="POST">
+                    {{#if loginErr}}
+                    <p class="error">{{loginErr}}</p>
+                    {{/if}}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <h2 class="pl-4" style="font-weight: 300;">Login</h2>
+                                <h5 class="text-center pt-3" style="font-weight: 100;">Pickup from where you left</h5>
+
+                                <img src="/images/logo1.png" class="text-center pt-2" width="300px" alt="">
+                            </div>
+                            <div class="col-md-6 mt-5">
+                                <div class="form-group">
+                                    <label style="font-weight: 200;">Email address</label>
+                                    <input type="email" name="Email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Enter email" required
+                                        style="border: none; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4); font-weight: 100;">
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 100;">Password</label>
+                                    <input type="password" name="Password" class="form-control"
+                                        id="exampleInputPassword1" placeholder="Password" required
+                                        style="border: none; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4); font-weight: 100;">
+                                </div>
+                                <a href="/signup" style="color: blueviolet; font-weight: 200; ">Create
+                                    new
+                                    account?</a><br>
+                                <a href="/admin" style="color: blueviolet; font-weight: 200;">admin??</a>
+                                <button type="submit" class="btn float-right"
+                                    style="background-color: rgb(99, 23, 170); color:#ffff;border-radius:30px;">Login</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

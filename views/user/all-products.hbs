@@ -1,0 +1,33 @@
+<div class="row mt-5 pt-5">
+
+
+    {{#each products}}
+    <div class="col-md-3 mt-3 pb-4 product-item-container">
+        <div class="card pt-2 px-2 ml-auto mr-auto" style="width: 16rem; height:35rem; border-radius:10px;">
+            <a href="/view-single-product/{{this._id}}"><img src="/product-images/{{this._id}}.jpg" width="5rem"
+                    class="card-img-top" alt="Card image cap" style="height: 20rem; "></a>
+            <div class="card-body">
+                <h5 class="card-title" style="font-weight: 200;">{{this.Name}}</h5>
+                <p class="card-text" style="font-weight: 200;">Rs.{{this.Price}}</p>
+                <p class="card-text" style="font-size:15px; font-weight: 200;">⭐️
+                    {{this.Rating}}</p>
+
+                <p class="card-text" style="font-weight: 200;">{{this.Description}}</p>
+                {{!-- <p class="card-text" style="font-weight: 200;">{{this.Category}}</p> --}}
+
+                <div class="row">
+                    <a href="/view-single-product/{{this._id}}" class="btn"
+                        style="background-color: rgb(86, 78, 204); color:#ffff; font-weight:100; ">View</a>
+                    <button onclick="addToCart('{{this._id}}')" class="btn mx-1"
+                        style="background-color: rgb(197, 82, 207); color:#ffff; font-weight:100; ">Add to
+                        Cart</button>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

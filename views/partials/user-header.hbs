@@ -1,0 +1,68 @@
+<header>
+    <nav class="navbar pr-5 pl-5  navbar-expand-lg bg-light nav-dark  fixed-top" style="  background: radial-gradient(#fff, #f3f0f0);
+">
+        <a class=" navbar-brand" href="/ "><img class="logo" src="/images/logo.png" width="170px" height="45px"
+                alt="My_Logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+
+                {{#if user}}
+                <li class="nav-item">
+                    <a class="nav-link" id="navl" style="color: #000000; font-weight:500; font-size:18px"
+                        href="/orders">Orders</a>
+                </li>
+                {{/if}}
+                <li class="nav-item active">
+                    <a class="nav-link" id="navl" style="color: #000000; font-weight:500; font-size:18px;"
+                        href="/all-products">Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="navl" style="color: #000000; font-weight:500; font-size:18px"
+                        href="/cart"><i class="fas fa-shopping-cart fa-1x"></i> <span
+                            class="badge badge-success cart-badge" id="cart-count">{{cartCount}}</span></a>
+                </li>
+
+
+            </ul>
+
+
+
+
+
+            <div class="dropdown show">
+                <a class="btn dropdown-toggle" style=" color:#000000; font-weight:200;" href="#" role="button"
+                    id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{#if user}}
+                    <i class="pr-1 fas fa-user-alt fa-1x"></i>{{user.Name}}
+                    {{else}}
+                    <i class="fas fa-user-alt fa-1x"></i>
+                    {{/if}}
+                </a>
+
+
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {{#if user}}
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                    {{else}}
+                    <a class="dropdown-item" href="/login">Login</a>
+                    {{/if}}
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<style>
+    .nav-link:hover {
+        background-color: rgb(255, 255, 255);
+        border-radius: 30px;
+    }
+</style>

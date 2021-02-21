@@ -1,0 +1,98 @@
+<section class="mt-5 pt-5 ml-auto mr-auto">
+    <div class="container ml-auto mr-auto">
+
+        <table class="table mt-5 px-5 table-responsive">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Item</th>
+                    <th scope="col" class="pr-5 pl-5">Title</th>
+                    <th scope="col" class="pr-5 pl-5">Price</th>
+                    <th scope="col" class="pr-5 pl-5">Quantity</th>
+                    <th scope="col" class="pr-5 pl-5">Remove</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#if products}}
+
+                {{#each products}}
+
+                <tr>
+                    <td></td>
+                    <td class="pr-5 "><img style="width:70px;height:70px;"
+                            src="/product-images/{{this.product._id}}.jpg" alt=""></td>
+                    <td class="pr-5 pl-5">{{this.product.Name}}</td>
+                    <td class="pr-5 pl-5">Rs.{{this.product.Price}}</td>
+
+                    <td class="pr-5 pl-5">
+                        <a class="cart-item-count mx-2" style="color:blueviolet ;"
+                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',-1)"><i
+                                class="fas fa-minus fa-1x"></i></a>
+                        <span class="" id="{{this.product._id}}"> {{this.quantity}} </span>
+                        <a class="cart-item-count mx-2" style="color:blueviolet;"
+                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',1)"><i
+                                class="fas fa-plus"></i></a>
+                    </td>
+
+                    <td class="pr-5 pl-5"><button class="btn" style="color:rgb(107, 36, 173)" ;
+                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user}}',-10)"><i
+                                class="fas fa-trash"></i></button></td>
+                </tr>
+                {{/each}}
+                {{else}}
+
+                <h1>Your cart is empty</h1>
+
+                {{/if}}
+
+            </tbody>
+        </table>
+        <hr>
+        <div class="pr-5 pb-5 mb-5 ml-auto mr-auto">
+            <h3 class="float-left mr-5 mt-5">
+                Total Rs. <span id="totalAmt">{{totalValue}}</span>
+            </h3><br>
+            <div class="text-center mb-5 mt-5 px-5 ml-auto mr-auto">
+                <a href="/place-order" class="btn mt-5 ml-auto mr-auto"
+                    style=" background-color: rgb(99, 23, 170); color:#ffff"><b>Place Order</b></a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<script>
+    function changeQuantity(cartId, proId, userId, count) {
+        let quantity = parseInt(document.getElementById(proId).innerHTML)
+        count = parseInt(count)
+        console.log(userId)
+
+        $.ajax({
+            url: '/change-product-quantity',
+            data: {
+                user: userId,
+                cart: cartId,
+                product: proId,
+                count: count,
+                quantity: quantity
+            },
+            method: 'post',
+            success: (response) => {
+                if (response.removeProduct) {
+                    alert('Product removed from cart')
+                    location.reload()
+                } else {
+                    console.log(response)
+                    document.getElementById(proId).innerHTML = quantity + count
+                    document.getElementById('totalAmt').innerHTML = response.total
+                }
+            }
+        })
+    }
+
+
+</script>
