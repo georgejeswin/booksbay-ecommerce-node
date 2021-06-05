@@ -33,7 +33,7 @@ app.use(session({ secret: "Key", cookie: { maxAge: 600000 } }));
 app.use(express.static(path.join(__dirname, "public")));
 db.connect((err) => {
   if (err) console.log("Error");
-  else console.log("database connected to port");
+  else console.log("database is now connected to port");
 });
 app.use("/", usersRouter);
 app.use("/admin", adminRouter);
